@@ -36,4 +36,4 @@ Run `grunt` for building and use dist folder
 
 
 ## Demo
-https://socialmediaprofile.firebaseioapp.com/
+https://socialmediaprofile.firebaseapp.com/
