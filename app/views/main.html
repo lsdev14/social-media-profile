@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-3">
+    <h3>My Profile</h3>
+    <div data-ng-if="user">
+      <img class="img-circle" style="width:70px;height:70px;" data-ng-src="{{user.picture}}" />
+      <div> {{user.firstName}} {{user.lastName}}</div>
+      <div> {{user.birthDate | date:'MM/dd'}}</div>
+      <span class="pointer" data-ng-click="changeStatus()"><i class="fa fa-circle" data-ng-class="user.status == 'Online' ? 'onlineStatus' : 'offlineStatus'"></i> {{user.status}}</span>
+      <br/>
+      <br/>
+      <div>
+        <div class="form-group">
+          <label for="newPost ">What's your on mind?</label>
+          <input type="text " id="newPost " class="form-control " data-ng-model="post.message ">          
+        </div> 
+        <span class="btn btn-primary " data-ng-click="sendPost() ">Send</span>        
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h3>News</h3>
+    <div data-ng-repeat="feed in feedList | orderBy:'date':true">
+      <div> <span>{{feed.date | date:'MM/dd/yyyy hh:mma' | lowercase}} - {{feed.userName}}<span>
+      </div>
+      <div> {{feed.message}}</div>
+      <br/>
+    </div>
+  </div>
+  <div class="col-sm-3 ">
+    <h3>Friend</h3>
+    <div data-ng-repeat="friend in friendList ">
+      <div class="friend-list "><img class="img-circle " style="width:30px;height:30px; " data-ng-src="{{friend.picture}} " />
+        <span> {{friend.firstName}} {{friend.lastName}}</span>
+        <i class="fa fa-circle " data-ng-class="friend.status=='Online' ? 'onlineStatus' : 'offlineStatus' "></i>
+      </div>
+    </div>
+  </div>
+</div>
+<span us-spinner="{radius:30, width:8, length: 16, top: '25%'} " spinner-key="spinner "></span>
